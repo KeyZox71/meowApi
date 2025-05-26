@@ -1,0 +1,10 @@
+# Nix related files
+.direnv/
+.envrc
+
+# Docker files
+.env
+
+# node files
+node_modules/
+*.log
