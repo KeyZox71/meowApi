@@ -1,5 +1,13 @@
 {
 	"dependencies": {
-		"fastify": "^5.3.3"
+		"fastify": "^5.3.3",
+		"fastify-cli": "^7.4.0"
+	},
+	"scripts": {
+		"start": "node src/server.js"
+	},
+	"devDependencies": {
+		"@types/node": "^22.15.21",
+		"typescript": "^5.8.3"
 	}
 }

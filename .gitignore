@@ -8,3 +8,4 @@
 # node files
 node_modules/
 *.log
+build/
