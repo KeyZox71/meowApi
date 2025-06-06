@@ -1,0 +1,16 @@
+# pnpm
+node_modules/
+
+# nix 
+flake.nix
+flake.lock
+.envrc
+-
+
+# git
+.git/
+README.md
+LICENSE
+
+# docker useless
+Dockerfile

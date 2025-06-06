@@ -29,10 +29,10 @@
             buildInputs = with pkgs; [
               nodejs_22
             ];
-            hardeningDisable = [ "all" ];
             packages = with pkgs; [
               typescript-language-server
               pnpm
+              typescript
               nixd
               nixfmt-rfc-style
             ];
