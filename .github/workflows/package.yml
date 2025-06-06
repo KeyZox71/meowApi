@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths-ignore:
       - '.github/**'
+      - '*.md'
   release:
     types: [created]
 
@@ -35,10 +36,9 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=semver,pattern={{version}},enable=${{ github.event_name == 'release' }}
-            type=ref,event=branch
-            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
-
+            type=raw,value=${{ github.event.release.tag_name }},enable=${{ github.event_name == 'release' }}
+            type=raw,value=latest,enable=${{ github.event_name == 'release' }}
+            type=raw,value=nightly,enable=${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
       - name: Build and push Docker image
         id: push
         uses: docker/build-push-action@v6
