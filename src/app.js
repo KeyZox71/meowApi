@@ -50,14 +50,12 @@ export default async function(fastify, options) {
 	fastify.get('/pp', async (request, reply) => {
 		const { id } = request.query
 		const list = await getImageList(ppDir)
+		let image
 		if (typeof id === 'undefined') {
-			if (list.length === 0) {
-				return reply.code(404).send({ error: 'No images available' })
-			}
-			const randomImage = list[Math.floor(Math.random() * list.length)]
-			return reply.sendFile(randomImage.filename)
+			image = list[Math.floor(Math.random() * list.length)]
+		} else {
+			image = list.find(img => img.id === id)
 		}
-		const image = list.find(img => img.id === id)
 		if (!image) {
 			return reply.code(404).send({ error: 'Image not found' })
 		}
