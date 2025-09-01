@@ -7,7 +7,7 @@ on:
       - '.github/**'
       - '*.md'
   release:
-    types: [created]
+    types: [published]
 
 env:
   REGISTRY: ghcr.io
