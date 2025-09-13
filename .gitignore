@@ -1,6 +1,5 @@
 # Nix related files
 .direnv/
-.envrc
 
 # Docker files
 .env
